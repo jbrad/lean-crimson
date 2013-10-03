@@ -1,0 +1,16 @@
+{
+  "name": "lean-crimson",
+  "version": "1.0.0",
+  "description": "This is a custom child theme kit for Lean Theme.",
+  "author": "Jason Bradley <http://jasonbradley.me>",
+  "homepage": "http://leantheme.co",
+  "repository": {
+    "type": "git",
+    "url": "http://github.com/jbrad/lean-crimson.git"
+  },
+  "engine": "node >= 0.4.1",
+  "devDependencies": {
+    "grunt-contrib-watch": "~0.5.x",
+    "grunt-contrib-less": "~0.6.x"
+  }
+}
