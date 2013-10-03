@@ -40,27 +40,9 @@
 /\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\//\/\/\/\/\/\/\/\/\/\
 */
 
-/* /\/\/\/\/\/\/\/\/\/\/\/\/\/\/ DO NOT MODIFY START /\/\/\/\/\/\/\/\/\/\/\/\/\/\/ */
-
-/**
- * Reorders the loading of Standard's styles to ensure that the child theme kit's
- * styles.css gets loaded last. This allows the child theme kit to override all 
- * Standard styles.
- *
- * @since	3.2.1
- * @version	1.0
- */
-function standard_child_theme_kit_reorder_styles() {
-    wp_dequeue_style( 'theme-responsive' );
-} // end standard_child_theme_kit_reorder_styles
-
-add_action( 'wp_enqueue_scripts', 'standard_child_theme_kit_reorder_styles', 1000 );
-
-/* /\/\/\/\/\/\/\/\/\/\/\/\/\/\/\ DO NOT MODIFY END /\/\/\/\/\/\/\/\/\/\/\/\/\/\/\ */
-
 /* /\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\ CUSTOMIZATIONS /\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/ */
 
-function standard_add_additional_theme_menus() {
+function add_additional_theme_menus() {
 	
 	register_nav_menus(
 		array(
@@ -68,40 +50,46 @@ function standard_add_additional_theme_menus() {
 		)
 	);
 	
-} // end standard_add_additional_theme_menus
+} // end add_additional_theme_menus
 	
-add_action( 'init', 'standard_add_additional_theme_menus' );
+add_action( 'init', 'add_additional_theme_menus' );
 
 function get_category_navigation() {
 	
 	if( has_nav_menu( 'category_menu' ) ) { ?>
-		<div id="menu-category" class="menu-navigation navbar navbar-fixed-top">
-			<div class="navbar-inner ">
-				<div class="container">
-	
-					<a class="btn btn-navbar" data-toggle="collapse" data-target=".category-nav-collapse">
-					  <span class="icon-bar"></span>
-					  <span class="icon-bar"></span>
-					  <span class="icon-bar"></span>
-					</a>
-				
-					<div class="nav-collapse category-nav-collapse">													
-						<?php
-							wp_nav_menu( 
-								array(
-									'container_class'	=> 'menu-header-container',
-									'theme_location'  	=> 'category_menu',
-									'items_wrap'      	=> '<ul id="%1$s" class="nav nav-menu %2$s">%3$s</ul>',
-									'fallback_cb'	  	=> 'standard_fallback_nav_menu',
-									'walker'			=> new Standard_Nav_Walker()
-							 	)
-							 );
-						?>
+        <nav id="menu-below-header" class="menu-navigation navbar navbar-default" role="navigation">
+            <div class="container">
+                <div class="navbar-header">
+                    <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".menu-category">
+                        <span class="sr-only">Toggle navigation</span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                    </button>
+                </div>
 
-					</div><!-- /.nav-collapse -->
-				</div> <!-- /container -->
-			</div><!-- /navbar-inner -->
-		</div> <!-- /#menu-above-header -->	
+                <div class="collapse navbar-collapse menu-category">
+                    <?php
+                    wp_nav_menu(
+                        array(
+                            'container_class'	=> 'menu-header-container',
+                            'theme_location'  	=> 'category_menu',
+                            'items_wrap'      	=> '<ul id="%1$s" class="nav navbar-nav %2$s">%3$s</ul>',
+                            'fallback_cb'	  	=> null,
+                            'walker'			=> new Bootstrap_Nav_Walker()
+                        )
+                    );
+                    ?>
+
+                    <?php if( ! has_nav_menu( 'menu_above_logo' ) ) { ?>
+                        <?php get_template_part( 'social-networking' ); ?>
+                    <?php } // end if ?>
+
+                </div><!-- /.nav-collapse -->
+
+            </div><!-- /.container -->
+            </div><!-- ./navbar-inner -->
+        </nav> <!-- /#menu-category -->
 	<?php } // end if
 	
 } // end get_category_navigation
