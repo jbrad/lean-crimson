@@ -57,7 +57,7 @@ add_action( 'init', 'add_additional_theme_menus' );
 function get_category_navigation() {
 	
 	if( has_nav_menu( 'category_menu' ) ) { ?>
-        <nav id="menu-below-header" class="menu-navigation navbar navbar-default" role="navigation">
+        <nav id="menu-category" class="menu-navigation navbar navbar-default" role="navigation">
             <div class="container">
                 <div class="navbar-header">
                     <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".menu-category">
