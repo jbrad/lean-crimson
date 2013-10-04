@@ -19,6 +19,8 @@
                 <?php get_sidebar(); ?>
             <?php } // end if ?>
 
+            <?php get_category_navigation(); ?>
+
             <section id="main" class="<?php echo 'full_width_layout' == $presentation_options['layout'] ? 'col-md-12' : 'col-md-8'; ?> clearfix" role="main">
 				
 				<?php // Even if google custom search is active, we may be coming from the 4040 page so we'll run this template. ?>

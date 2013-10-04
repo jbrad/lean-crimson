@@ -14,6 +14,9 @@
 <div id="wrapper">
 	<div class="container">
 		<div class="row">
+
+            <?php get_category_navigation(); ?>
+
 			<section id="main" class="col-md-12 clearfix" role="main">
 				
 				<?php get_template_part( 'breadcrumbs' ); ?>
