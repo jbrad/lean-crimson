@@ -1,19 +1,17 @@
-# Crimson For Standard
+# Crimson For Lean
 
-A child theme designed by Jason Bradley for Standard Theme 3.
+A child theme designed by Jason Bradley for Lean.
 
 ## Links
 
-* [Standard Theme](https://www.e-junkie.com/ecom/gb.php?ii=606601&c=ib&aff=141797&cl=64302)
-* [8BIT](http://8bit.io/)
+* [Lean](http://leantheme.co)
 * [Jason Bradley](http://everchangingmedia.com/)
-* [Live Preview](http://crimson.everchangingmedia.com/)
 
 ### Features
 
 * Included style.less file
-* Included variables.less file
-* Included mixins.less file
+* Included style.less file
+* Included Gruntfile.js
 * Custom menu added above content (Category Menu)
 * Customized post, comment, and widget backgrounds and borders
 * Customized quote post format background color
