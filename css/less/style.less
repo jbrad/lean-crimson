@@ -11,132 +11,20 @@ License URI: http://www.gnu.org/licenses/gpl-3.0.html
 Template: lean
 */
 
-/* Import Standard Styles
----------------------------------------------------------------------------------- */
+// Import Standard Styles
 
 @import url( '../lean/style.css' );
 
-/* Customizations
----------------------------------------------------------------------------------- */
+// Customizations
 
 // Variables
+@import "variables.less";
 
-// Colors
-@black: #000;
-@white: #FFF;
-
-@gray: #999;
-@grayLight: #E0E0E0;
-@grayLighter: #EFEFEF;
-@grayLightest: #E9E9E9;
-@grayDark: #999;
-@grayDarker: #454545;
-@grayDarkest: #202020;
-
-@red: #da363c;
-@redDark: darken(@red, 10%);
-
-// Red RGB
-@redr: 218;
-@redg: 54;
-@redb: 60;
-
-// Body
-@bodyBackgroundColor: @white;
-@linkColor: @red;
-@linkColorHover: @redDark;
-
-// Header
-@siteTitleColor: @black;
-@siteTitleColorHover: @red;
-@siteDescriptionColor: @grayDarker;
-
-// Navigation
-
-@menuAboveHeaderBackgroundColor: @black;
-@menuAboveHeaderBackgroundColorGradientTop: @black;
-@menuAboveHeaderBackgroundColorGradientBottom: @black;
-@menuAboveHeaderLinkColor: @gray;
-@menuAboveHeaderLinkColorHover: @red;
-@menuAboveHeaderLinkColorActive: @white;
-@menuAboveHeaderLinkColorActiveHover: @menuAboveHeaderLinkColorActive;
-@menuAboveHeaderBackgroundColorActive: @black;
-
-@menuUnderHeaderBackgroundColor: @black;
-@menuUnderHeaderBackgroundColorGradientTop: @black;
-@menuUnderHeaderBackgroundColorGradientBottom: @black;
-@menuUnderHeaderLinkColor: @gray;
-@menuUnderHeaderLinkColorHover: @white;
-@menuUnderHeaderLinkColorActive: @white;
-@menuUnderHeaderLinkColorActiveHover: @menuUnderHeaderLinkColorActive;
-@menuUnderHeaderBackgroundColorActive: @black;
-
-@menuCategoryBackgroundColor: @black;
-@menuCategoryBackgroundColorGradientTop: @black;
-@menuCategoryBackgroundColorGradientBottom: @black;
-@menuCategoryLinkColor: @white;
-@menuCategoryLinkBackgroundColor: @black;
-@menuCategoryLinkBackgroundColorHover: @red;
-@menuCategoryLinkColorHover: @red;
-@menuCategoryLinkColorActive: @white;
-@menuCategoryLinkColorActiveHover: @menuCategoryLinkColorActive;
-@menuCategoryLinkBackgroundColorActive: @menuCategoryLinkBackgroundColorHover;
-@menuCategoryLinkBackgroundColorActiveHover: @menuCategoryLinkBackgroundColorHover;
-@menuCategoryBackgroundColorActive: @black;
-
-@menuSubFloorLinkColor: @gray;
-@menuSubFloorLinkColorHover: @white;
-@menuSubFloorLinkColorActive: @white;
-@menuSubFloorLinkColorActiveHover: @white;
-
-@pagerBackgroundColor: @black;
-@pagerNextPrevBackgroundColor: @red;
-@pagerNextPrevLinkColor: @white;
-
-// Content
-@wrapperContainerBackgroundColor: @grayLight;
-@wrapperContainerBorderColor: @grayLighter;
-
-// Post
-@postTitleColor: @black;
-@postTitleColorHover: @red;
-
-// Post Format Quote
-@postFormatQuoteBackgroundColor: @red;
-@postFormatQuoteContentColor: @white;
-
-// Post Format Link
-@postFormatLinkPostTitleColor: @white;
-@postFormatLinkPostTitleColorHover: @red;
-
-// Widgets
-@widgetListItemColor: @grayDark;
-@widgetListItemColorHover: @red;
-
-// Activity Tabs Widget
-@activityTabsLinkColorHover: @red;
-
-@cgsSearchButtonBorderColor: @red;
-@cgsSearchButtonTopColor: @red;
-@cgsSearchButtonBottomColor: darken(@red, 5%);
-@cgsSearchButtonTopColorHover: darken(@red, 5%);
-@cgsSearchButtonBottomColorHover: darken(@red, 10%);
-@cgsInputBoxBorderColor: @red;
-
-// Footer
-@footerWidgetsBackgroundColor: @grayLighter;
-
-@subFloorBackgroundColor: @grayDark;
-@subFloorFooterMenuLinkColor: @black;
-@subFloorFooterMenuLinkColorHover: @red;
-
-@creditTextColor: @black;
-@creditLinkColor: @grayDarker;
-@creditLinkColorHover: @red;
+// Mixins
+@import "mixins.less";
 
 
 // Body
-
 body {
 	background: @bodyBackgroundColor;
 }
@@ -146,6 +34,7 @@ a {
 	-moz-transition: all .25s ease-in-out;
 	-webkit-transition: all .25s ease-in-out;
 	color: @linkColor;
+
 	&:hover {
 		color: @linkColorHover;
 		text-decoration: none;
@@ -154,13 +43,15 @@ a {
 
 #wrapper {
 	padding: 20px 0 0;
+
 	.container {
 		background: @wrapperContainerBackgroundColor;
 		border-top: 10px solid @wrapperContainerBorderColor;
 		border-left: 10px solid @wrapperContainerBorderColor;
 		border-right: 10px solid @wrapperContainerBorderColor;
-		padding: 20px 20px 0 20px;
+		padding: 0px;
 	}
+
 }
 
 // Header
@@ -174,20 +65,29 @@ a {
 /* Navigation */
 
 #menu-above-header {
+
 	&.navbar .nav {
+
 		> li > a {
 			border-top: 2px solid transparent;
+
 			&:hover {
 				color: @menuAboveHeaderLinkColorHover;
 			}
+
 		}
+
 		> .active > a {
-			border-top: 2px solid @red;			
+			border-top: 2px solid @red;
+
 			&:hover {
 				border-top: 2px solid @red;
 			}
+
 		}
+
 	}
+
 }
 
 #menu-category {
@@ -198,7 +98,8 @@ a {
       border-top: none;
       border-left: none;
       border-right: none;
-      padding: 10px 30px 0 30px;
+      padding: 10px 20px 0 20px;
+      margin: 0 15px;
     }
 
 	.navbar-inner {
@@ -218,6 +119,7 @@ a {
 	.navbar .btn-navbar {
 		margin-left: 0px;
 	}
+
 	&.navbar .nav {
 		> li > a {
 			background: @menuCategoryLinkBackgroundColor;
@@ -238,32 +140,55 @@ a {
 			}
 		}
 	}
-}
+
+    &.navbar-default {
+      background: none;
+
+      .navbar-toggle {
+        background-color: @grayDarkest;
+
+        .icon-bar {
+          background-color: @white;
+        }
+
+      }
+
+    }
+
+} // #menu-category
 
 .pager {
 	background: @pagerBackgroundColor;
 }
 
 .pager li {
+
 	> a, > span {
-		.rounded-corners(0px);
 		background: @pagerBackgroundColor;
-		border: 1px solid @pagerBackgroundColor;
+        border: 1px solid @pagerBackgroundColor;
+        .rounded-corners(0px);
+
 		&:hover {
-			.rounded-corners(0px);
 			background: @pagerNextPrevBackgroundColor;
-			border: 1px solid @pagerNextPrevBackgroundColor;
-			color: @pagerNextPrevLinkColor;
-		}
-	}
-}
+            border: 1px solid @pagerNextPrevBackgroundColor;
+            color: @pagerNextPrevLinkColor;
+            .rounded-corners(0px);
+        }
+
+	} // a, span
+
+} // .pager li
 
 .pager, .previous-page, .next-page {
+
 	a {
+
 		&:hover {
 			color: @pagerNextPrevLinkColor;
 		}
+
 	}
+
 }
 
 /* Posts */
@@ -277,6 +202,11 @@ a {
 .post.format-quote .post-header {
 	background-color: @postFormatQuoteBackgroundColor;
 	color: @postFormatQuoteContentColor;
+
+    .icon-quote-left {
+      color: @grayDarker;
+    }
+
 }
 
 /* Post Format Link */
@@ -293,33 +223,31 @@ a {
 
 /* Widgets */
 
-.widget {
-	ul {
-		li {
-			a {
-				&:hover {
-					color: @widgetListItemColorHover;
-					text-decoration: none;
-				}
-			}
-		}
-	}
+.widget ul li a:hover {
+    color: @widgetListItemColorHover;
+    text-decoration: none;
 }
 
 /* Footer */
 
 #footer {
 	background: none;
+
 	#footer-widgets {
 		padding-top: 0;
+
 		.container {
 			background: @footerWidgetsBackgroundColor;
 			padding: 20px 30px 0;
 		}
-	}
+
+	} //#footer-widgets
+
 	#sub-floor {
 		background: none;
+
 		.navbar .nav {
+
 			> li > a {
 				color: @subFloorFooterMenuLinkColor;
 				text-shadow: none;
@@ -327,21 +255,30 @@ a {
 					color: @subFloorFooterMenuLinkColorHover;
 				}
 			}
+
 			> .active > a {
 				background: none;
 			}
-		}
+
+		} // .navbar .nav
+
 		#credit {
 			color: @creditTextColor;
+
 			a {
 				color: @creditLinkColor;
+
 				&:hover {
 					color: @creditLinkColorHover;
 				}
+
 			}
-		}
-	}
-}
+
+		} // #credit
+
+	} // #sub-floor
+
+} // #footer
 
 input:focus,
 textarea:focus {
@@ -357,10 +294,12 @@ textarea:focus {
 
 .cse input.gsc-search-button, input.gsc-search-button {
 	border-color: @cgsSearchButtonBorderColor !important;
-	#gradient.vertical(@cgsSearchButtonTopColor, @cgsSearchButtonBottomColor) !important;
+	.gradient(@cgsSearchButtonTopColor, @cgsSearchButtonBottomColor) !important;
+
 	&:hover {
-		#gradient.vertical(@cgsSearchButtonTopColorHover, @cgsSearchButtonBottomColorHover) !important;
+		.gradient(@cgsSearchButtonTopColorHover, @cgsSearchButtonBottomColorHover) !important;
 	}
+
 }
 
 .gsc-search-box .gsc-input>input:focus,
@@ -402,41 +341,11 @@ textarea:focus {
 
 /* Desktop */
 @media (min-width: 980px) {
-	
+  #wrapper .container {
+    padding: 20px 20px 0 20px;
+  }
+  #menu-category .container {
+      padding: 10px 30px 0 30px;
+      margin: 0;
+  }
 }
-
-// Mixins
-
-#gradient {
-	.vertical(@startColor: @grayLight, @endColor: @gray) {
-		background-color: @startColor;
-		background-image: -webkit-gradient(linear, left top, left bottom, from(@startColor), to(@endColor));
-		background-image: -webkit-linear-gradient(top, @startColor, @endColor);
-		background-image: -moz-linear-gradient(top, @startColor, @endColor);
-		background-image: -o-linear-gradient(top, @startColor, @endColor);
-		background-image: -ms-linear-gradient(top, @startColor, @endColor);
-		filter: progid:DXImageTransform.Microsoft.gradient(GradientType=0,StartColorStr='@startColor', EndColorStr='@endColor');
-	} 
-	.horizontal(@startColor: @grayLight, @endColor: @gray) {
-		background-color: @startColor;
-		background-image: -webkit-gradient(linear, left top, left bottom, from(@startColor), to(@endColor));
-		background-image: -webkit-linear-gradient(top, @startColor, @endColor);
-		background-image: -moz-linear-gradient(top, @startColor, @endColor);
-		background-image: -o-linear-gradient(top, @startColor, @endColor);
-		background-image: -ms-linear-gradient(top, @startColor, @endColor);
-		filter: progid:DXImageTransform.Microsoft.gradient(GradientType=0,StartColorStr='@startColor', EndColorStr='@endColor');
-	}
-}
-
-.rounded-corners(@radius: 4px) {
-	-webkit-border-radius: @radius;
-	-moz-border-radius: @radius;
-	border-radius: @radius;
-}
-
-.no-shadow() {
-	-webkit-box-shadow: none;
-	-moz-box-shadow: none;
-	box-shadow: none;
-}
-
